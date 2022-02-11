@@ -1,0 +1,65 @@
+
+<!-- saved from url=(0047)file:///C:/Users/User/Desktop/NodeJs/karim.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script>
+    
+    function getData(){
+        fetch('https://restcountries.com/v3.1/all')
+        .then(response=>response.json())
+        .then(data=>{
+            var found=0;
+            data.forEach(e => {
+                if (e.name.common.toLowerCase()==document.getElementById('Search').value.toLowerCase()){
+                    found=1;
+                    const Languages =JSON.stringify(e.languages).split(',');
+                    const Currencies =JSON.stringify(e.currencies).split('{');
+                    myh1=document.getElementById('myh1');
+                    myh1.innerHTML=e.name.common +(e.independent==true ? " (Independent)" : " (Dependent Territory)");
+                    myh2=document.getElementById('myh2');
+                    myh2.innerHTML="Capital: "+ e.capital + "<br/>Region: " + e.region + "<br/>Population: " + e.population;
+                    myh3=document.getElementById('myh3');
+                    myh2.innerHTML+="<br/><br/>Spoken Languages:";
+                    myh3.innerHTML=" ";
+                    Languages.forEach(l=>{
+                        const lang = l.split("\"");
+                        myh3.innerHTML+="-"+lang[3]+"<br/>";
+                    })
+                    document.getElementById('myImage').src=e.flags.png;
+                    
+                    my2h3=document.getElementById('myh3.1');
+                    my2h2=document.getElementById('myh2.1');
+                    my2h2.innerHTML="Currencies:";
+                    Currencies.forEach(c=>{
+                        const cur =c.split("\"");
+                        my2h3.innerHTML=" ";
+                        my2h3.innerHTML+="-"+cur[3]+" ("+cur[7]+") "+"<br/>";    
+                    });
+                        
+                    my3h2=document.getElementById('myh2.2');
+                    my3h2.innerHTML="<br/>" + e.name.common + (e.unMember==true? " is":" is not") + " a UN member.";
+                }
+                
+                
+                
+        });
+        if (found==0){
+            document.getElementById('myh1').innerHTML="";
+            document.getElementById('myh2').innerHTML="";
+            document.getElementById('myh3').innerHTML="";
+            document.getElementById('myh2.1').innerHTML="";
+            document.getElementById('myh3.1').innerHTML="";
+            document.getElementById('myh2.2').innerHTML="";
+            document.getElementById('myImage').src="https://cdn.dribbble.com/users/1982249/screenshots/13673321/media/245af641dcd3f72ec8301750900169b9.png?compress=1&resize=700x600&vertical=top";
+        }
+    });
+    }
+</script>
+</head><body><input id="Search" type="text" placeholder="Search..">
+<button id="mybutton" onclick="getData()">Get Data</button>
+<h1 id="myh1"></h1>
+<img id="myImage" src="./CountrySearch_files/245af641dcd3f72ec8301750900169b9.png">
+<h2 id="myh2"></h2>
+<h3 id="myh3"></h3>
+<h2 id="myh2.1"></h2>
+<h3 id="myh3.1"></h3>
+<h2 id="myh2.2"></h2>
+</body></html>
