@@ -1,0 +1,38 @@
+ <!--Add Later-->
+ <div class="row">
+                    <div class="col-12 col-lg-7">
+                        <div class="single_product_thumb">
+                            <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <a class="gallery_img" href="img/core-img/logo-nobg.png">
+                                            <img class="d-block w-100" src="img/core-img/logo-nobg.png" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5">
+                        <div class="single_product_desc">
+                            <!-- Product Meta Data -->
+                            <div class="product-meta-data">
+                                <div class="line"></div>
+                                <p class="product-price" ></p>
+                                <a href="#" class="search-nav">
+                                    <h6>Search</h6>
+                                </a>
+                                
+                                <!-- Avaiable -->
+                                <p class="avaibility"><i class="fa fa-circle"></i> In Stock</p>
+                            </div>
+
+                            <div class="short_overview my-5">
+                                <p>Search for your product</p>
+                            </div>
+
+                        
+
+                        </div>
+                    </div>
+                </div>
