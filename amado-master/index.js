@@ -1,4 +1,3 @@
-
 fetch('https://karim-naj-first-api.herokuapp.com/')
     .then(response=> response.json())
     .then(json=>{

@@ -40,13 +40,12 @@ function displayResult(){
         </div>`
 
 var searchResult = document.getElementById('mySearch')
-customizedDisplay=productDisplay;
 display.innerHTML=' '
 
     for (let j=0;j<json.length;j++){
 
         const Words = json[j].Name.split(" ")
-        
+        customizedDisplay=productDisplay;
         if (searchResult.value.toLowerCase() == json[j].Name.toLowerCase()){
                 
                 customizedDisplay=customizedDisplay.replace('zoom-image', json[j].Image)
@@ -62,17 +61,17 @@ display.innerHTML=' '
             customizedDisplay=customizedDisplay.replace('display-image', json[j].Image)
             customizedDisplay=customizedDisplay.replace('pricing', json[j].Price+"$")
             customizedDisplay=customizedDisplay.replace('naming', json[j].Name)
-            myDiv.innerHTML=customizedDisplay
+            myDiv.innerHTML+=customizedDisplay
             display.appendChild(myDiv)
     }
         else {
             for (let i=0;i<Words.length;i++){
-                if (searchResult.value.toLowerCase() == Words[i].toLowerCase()){
+                while (searchResult.value.toLowerCase() == Words[i].toLowerCase()){
                     customizedDisplay=customizedDisplay.replace('zoom-image', json[j].Image)
                     customizedDisplay=customizedDisplay.replace('display-image', json[j].Image)
                     customizedDisplay=customizedDisplay.replace('pricing', json[j].Price+"$")
                     customizedDisplay=customizedDisplay.replace('naming', json[j].Name)
-                    myDiv.innerHTML=customizedDisplay
+                    myDiv.innerHTML+=customizedDisplay
                     display.appendChild(myDiv)
                     break;
             }
